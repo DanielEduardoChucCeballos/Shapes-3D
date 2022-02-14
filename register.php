@@ -164,7 +164,7 @@ if ($password !== $r_password) {
   <br><br><br><br><br>
 <br><br><br>
 </section>
-
+<!-- //test -->
 
 <?php require 'layout/footer.php'; ?>
 
