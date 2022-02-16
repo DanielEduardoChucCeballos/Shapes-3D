@@ -21,12 +21,15 @@ require 'layout/header.php';
         <img src="image/pp.jpeg" class="img-fluid" alt="Phone image">
       </div>
       <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-        <form action="auth/login_v.php" method="post">
+
+      <div id="messages"></div>
+
+        <form action="auth/login_v.php" method="post" id="frmLoging">
           <!-- Email input -->
           <div class="form-outline mb-4">
             <label class="form-label" for="form1Example13">Email</label>
 
-            <input type="email" id="form1Example13" name="email" placeholder="Email"class="form-control form-control-lg shadow"/>
+            <input type="email" id="form1Example13" name="username" placeholder="Email"class="form-control form-control-lg shadow"/>
           </div>
 
           <!-- Password input -->
@@ -77,6 +80,29 @@ require 'layout/header.php';
 <?php 
 require 'layout/footer.php';
 ?>
+
+<script src="js/jquery.min.js"></script>
+
+<script type="text/javascript">
+    var frm1 = $('#frmLoging');
+    frm1.submit(function(e) {
+      e.preventDefault();
+      $.ajax({
+        type: frm1.attr('method'),
+        url: frm1.attr('action'),
+        data: frm1.serialize(),
+        success: function(data) {
+          console.log('Submission was successful.');
+          console.log(data);
+          $('#messages').html(data);
+        },
+        error: function(data) {
+          console.log('An error occurred.');
+          console.log(data);
+        },
+      });
+    });
+  </script>
 
 </body>
 </html>
