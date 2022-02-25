@@ -7,9 +7,7 @@
   <title>Index | Shapes 3D</title>
 </head>
 <body>
-<?php
-    require("layout/header.php");
-?>
+<?php require 'layout/header.php'; ?>
     <div id="carouselExampleCaptions" class="carousel slide robotofont" data-bs-ride="carousel">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -133,8 +131,6 @@
 		<a href="" class="link-dark">Terminos de uso</a>
 	</footer>
     </section> 
-    <?php
-    require("layout/footer.php"); 
-?>
+    <?php require 'layout/footer.php'; ?>
 </body>
 </html>

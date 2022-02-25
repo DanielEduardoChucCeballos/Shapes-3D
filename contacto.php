@@ -8,7 +8,7 @@
 </head>
 <body>
 <?php
-require_once "layout/header.php";
+require "layout/header.php";
 
 ?>
 <section class=" py-4 robotofont" style="background-color: #eee;">
@@ -47,7 +47,7 @@ require_once "layout/header.php";
  
 </section>
 <?php
-require_once "layout/footer.php";
+require "layout/footer.php";
 
 ?>
 </body>
