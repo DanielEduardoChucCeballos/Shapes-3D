@@ -35,33 +35,6 @@ require "layout/header.php";
   </div>
 </div>
 
-<div class="card my-4 rounded-bottom py-4 px-4" style="width: 18rem;">
-  <img src="image/8.png" class="card-img-top imgzoom" alt="...">
-  <div class="card-body">
-    <h5 class="card-title robotofont">Precios</h5>
-    <hr>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-<div class="card my-4 rounded-bottom py-4 px-4" style="width: 18rem;">
-  <img src="image/8.png" class="card-img-top imgzoom" alt="...">
-  <div class="card-body">
-    <h5 class="card-title robotofont">Catálogo</h5>
-    <hr>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-<div class="card my-4 rounded-bottom py-4 px-4" style="width: 18rem;">
-  <img src="image/8.png" class="card-img-top imgzoom" alt="...">
-  <div class="card-body">
-    <h5 class="card-title robotofont">Filamentos</h5>
-    <hr>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
 </div>
 
 </div>

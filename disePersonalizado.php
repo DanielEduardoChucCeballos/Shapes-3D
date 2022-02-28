@@ -10,14 +10,14 @@
     input[type="text"]{
         border-radius: 20px;
     }
-    
+
 </style>
 <body style="background-color: #eee;">
     <?php include 'layout/header.php'; ?>
     <div class="row">
     <div class="col-md-8">
 
-<form action="#" method="post" enctype="multipart/form">
+<form action="funciones/calculadora.php" method="post" enctype="multipart/form">
 
 <div class="container py-4 ">
 <div class="col-md-8 py-4 mx-auto">
@@ -26,8 +26,8 @@
 <p class="text-center h5 fw-bold ">Datos personales</p>
 <hr>
     <div class="mb-3">
-        <label for="apellido" class="form-label">Apellido</label>
-        <input type="text" class="form-control shadow" name="apellido" id="" aria-describedby="helpId" placeholder="Nombre">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control shadow" name="nombre" id="" aria-describedby="helpId" placeholder="Nombre">
     </div>
     <div class="mb-3">
         <label for="apellido" class="form-label">Apellido</label>
@@ -66,7 +66,7 @@
 
         <div class="mb-3">
             <label for="modelo" class="form-label">Modelo 3D</label>
-            <input type="file" class="form-control" name="" id="" placeholder="" aria-describedby="fileHelpId">
+            <input type="file" class="form-control" name="modelo" id="" placeholder="" aria-describedby="fileHelpId">
             <small id="fileHelpId" class="form-text text-muted">Archivo .stl</small>
         </div>
 
@@ -109,7 +109,7 @@
                       </div>
                     </div>
                   </div>
-                  
+
                 </div>
 
             </div>
@@ -146,35 +146,94 @@
 ancho
 </div>
 </div>
-              
-<div class="col-md-8 py-4 mx-auto">
-                <center>
-                  <input type="submit" class="btn btn-primary" name="submit" value="Calcular">
-                </center>
-              </div>
+
+
 <!-- Calculadora -->
 
               <div class="mb-3">
                 <label for="material" class="form-label">Material</label>
                 <select class="form-select shadow" name="material" id="">
                   <option selected>-- Selecciona un Material --</option>
-                  <option value="">example 1</option>
-                  <option value="">example 2</option>
-                  <option value="">example 3</option>
+                  <option value="">PLA Gris $1.2 pesos MX Por Minuto</option>
+                  <option value="">ABS Azul $1.50 pesos MX por minuto</option>
+                 
                 </select>
               </div>
             </div>
+
+<!-- relleno interior -->
+<hr>
+<center>
+<h4>Relleno</h4>
+</center>
+<div class="row">
+  <div class="col-md-4 py-2 px-2  shadow">
+<img src="image/relleno-1.jpg" class="imgzoom figure-img img-fluid rounded" alt="relleno 1">
+<label for="relleno">Relleno 20 - 30%</label>
+<input type="radio" class="form-check-input" name="relleno" value="20-30" id="">  
+</div>
+  <div class="col-md-4 py-2 px-2  shadow">
+    <img src="image/relleno-2.jpg" class="imgzoom figure-img img-fluid rounded" alt="relleno 2">
+    <label for="relleno">Relleno 50 - 60%</label>
+    <input type="radio" class="form-check-input" name="relleno" value="50-60" id="">
+  
+  </div>
+  <div class="col-md-4 py-2 px-2  shadow">
+    <img src="image/relleno-3.jpg" class="imgzoom figure-img img-fluid rounded" alt="relleno 3">
+    <label for="relleno">Relleno 90 - 100%</label>
+    <input type="radio" class="form-check-input" name="relleno" value="90-100" id="">
+  
+  </div>
+</div>
+<!-- relleno interior -->
+
+
+<!-- acabado superficial -->
+<hr>
+<center>
+<h4>Acabado superficial</h4>
+</center>
+<div class="row">
+  <div class="col-md-4 py-2 px-2  shadow">
+<img src="image/calidad-1.jpg" class="imgzoom figure-img img-fluid rounded" alt="relleno 1">
+<label for="acabado">Fino</label>
+<input type="radio" class="form-check-input" name="acabado" value="20-30" id="">  
+</div>
+  <div class="col-md-4 py-2 px-2  shadow">
+    <img src="image/calidad-2.jpg" class="imgzoom figure-img img-fluid rounded" alt="relleno 2">
+    <label for="acabado">Medio</label>
+    <input type="radio" class="form-check-input" name="acabado" value="50-60" id="">
+  
+  </div>
+  <div class="col-md-4 py-2 px-2  shadow">
+    <img src="image/calidad-3.jpg" class="imgzoom figure-img img-fluid rounded" alt="relleno 3">
+    <label for="acabado">Rugoso</label>
+    <input type="radio" class="form-check-input" name="acabado" value="90-100" id="">
+  
+  </div>
+</div>
+<!-- acabado superficial -->
+
+
+
+
+
+
+
+
+
         </div>
+
    <!--  <div class="row">
-        
+
         El contenido va aqui
-       
+
     </div> -->
 </div>
 </div>
 <div class="col-md-8 py-4 mx-auto">
   <center>
-    <input type="submit" class="btn btn-success" name="submit" value="Guardar">
+    <input type="submit" class="btn btn-success" name="submit" value="Calcular">
   </center>
 </div>
 </form>
@@ -186,7 +245,7 @@ ancho
       </div>
     </div>
     </div>
-    
+
 <?php include 'layout/footer.php'; ?>
 
 </body>

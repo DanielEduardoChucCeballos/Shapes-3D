@@ -49,7 +49,30 @@
    <div class="container ">
         <h5 class="robotofont py-4 text-center">Modelos 3D</h5>
         <div class="row">
-
+        <div class="col-md-4 py-2">
+                <div class="card h-100 card-body shadow">
+                    <img src="image/6.png" class="imgzoom img-fluid|thumbnail rounded-top|rounded-end|rounded-bottom|rounded-start|rounded-circle|" alt="shapes 3d Logo">
+					<br>
+                    <hr>
+                    <button class="btn btn-primary">Precios</button>
+                </div>
+            </div>
+            <div class="col-md-4 py-2">
+                <div class="card h-100 card-body shadow">
+                    <img src="image/8.png" class="imgzoom img-fluid|thumbnail rounded-top|rounded-end|rounded-bottom|rounded-start|rounded-circle|" alt=""> 
+                    <br>
+                    <hr>
+                    <button class="btn btn-primary">Filamentos</button>
+                </div>
+            </div>
+            <div class="col-md-4 py-2">
+                <div class="card h-100 card-body shadow">
+                    <img src="image/8.png" class="imgzoom img-fluid|thumbnail rounded-top|rounded-end|rounded-bottom|rounded-start|rounded-circle|" alt=""> 
+                    <br>
+                    <hr>
+                    <button class="btn btn-primary">Diseños 3D</button>
+                </div>
+            </div>
         	<hr>
         	<div class="card h-100 card-body shadow my-5">
         		<div class="row container">
@@ -59,7 +82,7 @@
 	        		<div class="col-2 text-white">
 	        			.
 	        		</div>
-	        		<div class="col-6 p-4">
+	        		<div class="col-md-6 p-4">
 	        			<center><h1>Nosotros</h1></center>
 	        			<h3 class="text-center">Brindamos un servicio de impresión 3D, así como la creación del diseño, para cualquier  persona interesada, ya sea micro, pequeñas y medianas empresas. La impresión 3D proporcionando una réplica exacta del producto o prototipo original, lo que garantiza  la producción y la calidad del producto.</h3>
 	        		</div>
@@ -73,7 +96,7 @@
 	        		<div class="col-2 text-white">
 	        			.<!--Espacio entre columnas, no lo borres we!! :)-->
 	        		</div>
-	        		<div class="col-6 p-4">
+	        		<div class="col-md-6 p-4">
 	        			<center><h1>Nuestro Objetivo</h1></center>
 	        			<h3 class="text-center">Brindar un servicio eficaz y completo a quienes requieran productos elaborados con impresión 3D, brindándoles el apoyo técnico necesario para hacer de sus ideas una realidad.</h3>       			
 	        		</div>
@@ -87,7 +110,7 @@
 	        		<div class="col-2 text-white">
 	        			.
 	        		</div>
-	        		<div class="col-6 p-4">
+	        		<div class="col-md-6 p-4">
 	        			<center><h1>Innovación</h1></center>
 	        			 <h3 class="text-center">Cuando se necesita una reparación o una pieza faltante, puedes reemplazar o solucionar el problema mucho más rápido, también procesar su idea de producto, proporcionar diseños 3D y en su caso su impresión.</h3>
 	        		</div>
@@ -95,33 +118,16 @@
         	</div>
         	<hr>
 
-            <div class="col-sm-4 py-2">
-                <div class="card h-100 card-body shadow">
-                    <img src="image/6.png" class="imgzoom img-fluid|thumbnail rounded-top|rounded-end|rounded-bottom|rounded-start|rounded-circle|" alt="shapes 3d Logo">
-					<br>
-                    <hr>
-                    <button class="btn btn-primary">Cotización</button>
-                </div>
-            </div>
-            <div class="col-sm-4 py-2">
-                <div class="card h-100 card-body shadow">
-                    <img src="image/7.png" class="imgzoom img-fluid|thumbnail rounded-top|rounded-end|rounded-bottom|rounded-start|rounded-circle|" alt=""> 
-                    <br>
-                    <hr>
-                    <button class="btn btn-primary">Productos</button>
-                </div>
-            </div>
-            <div class="col-sm-4 py-2">
-                <div class="card h-100 card-body shadow">
-                    <img src="image/8.png" class="imgzoom img-fluid|thumbnail rounded-top|rounded-end|rounded-bottom|rounded-start|rounded-circle|" alt=""> 
-                    <br>
-                    <hr>
-                    <button class="btn btn-primary">Diseños 3D</button>
-                </div>
-            </div>
+            
+            
         </div>
        <!--  carousel -->
        <!--  carousel -->
+
+
+
+
+       
     </div>
     <section class="container robotofont">
 <h5 class="robotofont py-4 text-center"><span>Shapes 3D</span></h5>
