@@ -20,7 +20,7 @@
 <form action="funciones/calculadora.php" method="post" enctype="multipart/form">
 
 <div class="container py-4 ">
-<div class="col-md-8 py-4 mx-auto">
+<div class="col-md-10 py-4 mx-auto">
 
 <div class="card-body bg-white " style="border-radius: 25px;">
 <p class="text-center h5 fw-bold ">Datos personales</p>
@@ -51,7 +51,7 @@
     </div>
     <div class="mb-3">
         <label for="telefono" class="form-label">Teléfono</label>
-        <input type="text" class="form-control shadow" name="telefono" id="" aria-describedby="helpId" placeholder="Teléfono">
+        <input type="tel" class="form-control shadow" name="telefono" id="" aria-describedby="helpId" placeholder="Teléfono">
     </div>
 
 </div>
@@ -59,7 +59,7 @@
 
 
 
-<div class="col-md-8 py-4 mx-auto">
+<div class="col-md-10 py-4 mx-auto">
             <div class="card-body bg-white " style="border-radius: 25px;">
         <p class="text-center h5 fw-bold ">Descripción del producto que desea</p>
         <hr>
@@ -114,7 +114,7 @@
 
             </div>
         </div>
-        <div class="col-md-8 py-4 mx-auto">
+        <div class="col-md-10 py-4 mx-auto">
             <div class="card-body bg-white " style="border-radius: 25px;">
         <p class="text-center h5 fw-bold ">Detalles</p>
 <hr>
@@ -123,27 +123,29 @@
 <div class="row">
   <div class="col-md-10">
   <div class="input-group">
-                <span class="input-group-text">Altura</span>
-                <input type="number" name="altura" id="altura" step="any" class="form-control shadow" placeholder="Altura">
+                <span class="input-group-text">Altura cm</span>
+                <input type="number" name="altura" id="altura" step="any" max="148" class="form-control shadow" placeholder="Altura">
               </div>
               <div class="input-group">
-                <span class="input-group-text">Longitud</span>
-                <input type="number" name="longitud" id="longitud" step="any" class="form-control shadow" placeholder="Longitud">
+                <span class="input-group-text">Longitud cm</span>
+                <input type="number" name="longitud" id="longitud" step="any" max="148" class="form-control shadow" placeholder="Longitud">
               </div>
               <div class="input-group">
-                <span class="input-group-text">Anchura</span>
-                <input type="number" name="anchura" id="anchura" step="any" class="form-control shadow" placeholder="Anchura">
+                <span class="input-group-text">Anchura cm</span>
+                <input type="number" name="anchura" id="anchura" step="any" max="74" class="form-control shadow" placeholder="Anchura">
               </div>
   </div>
   <div class="col-md-2">
 <div class="">
-<i class="fa fa-arrow-up" aria-hidden="true"></i>
+<!-- <i class="fa fa-arrow-up" aria-hidden="true"></i> -->
+X
 </div >
 <div class="py-4">
-  <i class="fa fa-arrow-right" aria-hidden="true"></i>
+  <!-- <i class="fa fa-arrow-right" aria-hidden="true"></i> -->
+  Y
 </div>
 <div class="">
-ancho
+Z
 </div>
 </div>
 
@@ -231,7 +233,7 @@ ancho
     </div> -->
 </div>
 </div>
-<div class="col-md-8 py-4 mx-auto">
+<div class="col-md-10 py-4 mx-auto">
   <center>
     <input type="submit" class="btn btn-success" name="submit" value="Calcular">
   </center>
