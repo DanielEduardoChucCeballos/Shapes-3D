@@ -31,7 +31,7 @@ require "layout/header.php";
     <h5 class="card-title robotofont">Diseño Personalizado</h5>
     <hr>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="disePersonalizado.php" class="btn btn-primary">Go somewhere</a>
+    <a href="dise-personalizado.php" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
 

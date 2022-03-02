@@ -1,5 +1,10 @@
 <?php
-include('funciones/calculadora.php');
+include 'funciones/calculadora.php';?>
+<?php
+include 'db/config.php';
+$statement = $pdo->prepare('SELECT * FROM filament');
+$statement->execute();
+$resultados = $statement->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,11 +21,22 @@ include('funciones/calculadora.php');
 
 </style>
 <body style="background-color: #eee;">
-    <?php include 'layout/header.php'; ?>
+    <?php include 'layout/header.php';?>
+    <?php if (!empty($errores)): ?>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                      <center>
+                        <strong class=""><?php echo $errores; ?></strong>
+                      </center>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+
+                  <?php endif;?>
     <div class="row">
     <div class="col-md-8">
 
-<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" enctype="multipart/form">
+<form action="<?php echo htmlspecialchars(
+    $_SERVER['PHP_SELF']
+); ?>" method="post" enctype="multipart/form">
 
 <div class="container py-4 ">
 <div class="col-md-10 py-4 mx-auto">
@@ -30,19 +46,19 @@ include('funciones/calculadora.php');
 <hr>
     <div class="mb-3">
         <label for="nombre" class="form-label">Nombre</label>
-        <input type="text" class="form-control shadow" name="nombre" id="" aria-describedby="helpId" placeholder="Nombre">
+        <input type="text" class="form-control shadow" name="nombre" id="" aria-describedby="helpId" placeholder="Nombre" >
     </div>
     <div class="mb-3">
         <label for="apellido" class="form-label">Apellido</label>
-        <input type="text" class="form-control shadow" name="apellido" id="" aria-describedby="helpId" placeholder="Apellido">
+        <input type="text" class="form-control shadow" name="apellido" id="" aria-describedby="helpId" placeholder="Apellido" >
     </div>
     <div class="mb-3">
         <label for="empresa" class="form-label">Nombre de su empresa</label>
-        <input type="text" class="form-control shadow" name="empresa" id="" aria-describedby="helpId" placeholder="Empresa">
+        <input type="text" class="form-control shadow" name="empresa" id="" aria-describedby="helpId" placeholder="Empresa" >
     </div>
     <div class="mb-3">
         <label for="direccion" class="form-label">Dirección</label>
-          <textarea class="form-control shadow" name="direccion" id="" rows="3" style="border-radius: 20px;"></textarea>
+          <textarea class="form-control shadow" name="direccion" id="" rows="3" style="border-radius: 20px;" ></textarea>
     </div>
     <hr>
     <center>
@@ -50,11 +66,11 @@ include('funciones/calculadora.php');
     </center>
     <div class="mb-3">
         <label for="email" class="form-label">Email</label>
-        <input type="text" class="form-control shadow" name="email" id="" aria-describedby="helpId" placeholder="Email">
+        <input type="text" class="form-control shadow" name="email" id="" aria-describedby="helpId" placeholder="Email" >
     </div>
     <div class="mb-3">
         <label for="telefono" class="form-label">Teléfono</label>
-        <input type="tel" class="form-control shadow" name="telefono" id="" aria-describedby="helpId" placeholder="Teléfono">
+        <input type="tel" class="form-control shadow" name="telefono" id="" aria-describedby="helpId" placeholder="Teléfono" >
     </div>
 
 </div>
@@ -69,51 +85,27 @@ include('funciones/calculadora.php');
 
         <div class="mb-3">
             <label for="modelo" class="form-label">Modelo 3D</label>
-            <input type="file" class="form-control" name="modelo" id="" placeholder="" aria-describedby="fileHelpId">
+            <input type="file" class="form-control" name="modelo" id="" placeholder="" aria-describedby="fileHelpId" >
             <small id="fileHelpId" class="form-text text-muted">Archivo .stl</small>
         </div>
 
                 <div class="mb-3">
                     <label for="descripcion" class="form-label">Descripción del producto</label>
-                    <textarea class="form-control shadow" name="descripcion" id="" rows="3"></textarea>
+                    <textarea class="form-control shadow" name="descripcion" id="" rows="3" ></textarea>
                 </div>
 
                 <!--Puntos de vista-->
-                <div class="accordion accordion-flush" id="accordionFlushExample">
-                  <div class="accordion-item">
-                    <h2 class="accordion-header" id="flush-headingOne">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne">
-                        Perspectivas
-                      </button>
-                    </h2>
-                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                      <div class="accordion-body">
-                        <div class="card border-dark">
-                          <img class="card-img-top" src="holder.js/100px180/" alt="">
-                          <div class="card-body">
-                            <h4 class="card-title">Primera persp</h4>
-                            <p class="card-text">image</p>
-                          </div>
-                        </div>
-                        <div class="card border-dark">
-                          <img class="card-img-top" src="holder.js/100px180/" alt="">
-                          <div class="card-body">
-                            <h4 class="card-title">Segunda persp</h4>
-                            <p class="card-text">image</p>
-                          </div>
-                        </div>
-                        <div class="card border-dark">
-                          <img class="card-img-top" src="holder.js/100px180/" alt="">
-                          <div class="card-body">
-                            <h4 class="card-title">Tercera persp</h4>
-                            <p class="card-text">image</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
+                <div class="row">
+  <div class="col-md-4 py-2 px-2  shadow">
+<img src="image/cubo.png" class="  img-fluid rounded " alt="Primera Perspectiva">
+</div>
+  <div class="col-md-4 py-2 px-2  shadow">
+    <img src="image/triangulo.png" class="  img-fluid rounded " alt="Segunda Perspectiva">
+  </div>
+  <div class="col-md-4 py-2 px-2  shadow">
+    <img src="image/otro.jpg" class="  img-fluid rounded " alt="Tercera Perspectiva">
+  </div>
+</div>
 
             </div>
         </div>
@@ -127,15 +119,15 @@ include('funciones/calculadora.php');
   <div class="col-md-10">
   <div class="input-group">
                 <span class="input-group-text">Altura cm</span>
-                <input type="number" name="altura" id="altura" step="any" max="20" class="form-control shadow" placeholder="Altura">
+                <input type="number" name="altura" id="altura" step="any" max="20" class="form-control shadow" placeholder="Altura" >
               </div>
               <div class="input-group">
                 <span class="input-group-text">Longitud cm</span>
-                <input type="number" name="longitud" id="longitud" step="any" max="14.8" class="form-control shadow" placeholder="Longitud">
+                <input type="number" name="longitud" id="longitud" step="any" max="14.8" class="form-control shadow" placeholder="Longitud" >
               </div>
               <div class="input-group">
                 <span class="input-group-text">Anchura cm</span>
-                <input type="number" name="anchura" id="anchura" step="any" max="14" class="form-control shadow" placeholder="Anchura">
+                <input type="number" name="anchura" id="anchura" step="any" max="14" class="form-control shadow" placeholder="Anchura" >
               </div>
   </div>
   <div class="col-md-2">
@@ -157,11 +149,13 @@ Z
 
               <div class="mb-3">
                 <label for="material" class="form-label">Material</label>
-                <select class="form-select shadow" name="material" id="">
-                  <option selected>-- Selecciona un Material --</option>
-                  <option value="1.2">PLA Gris $1.2 pesos MX Por Minuto</option>
-                  <option value="1.5">ABS Azul $1.50 pesos MX por minuto</option>
-                 
+                <select class="form-select shadow" name="material" id="" >
+                <option selected>-- Selecciona un Material --</option>
+              <?php foreach ($resultados as $resultado): ?>
+                <option value="<?php echo $resultado['price']; ?>">
+                    <?php echo $resultado['name'] . ' - ' . $resultado['colour']; ?>
+                </option>
+              <?php endforeach?>
                 </select>
               </div>
             </div>
@@ -175,19 +169,19 @@ Z
   <div class="col-md-4 py-2 px-2  shadow">
 <img src="image/relleno-1.jpg" class="imgzoom figure-img img-fluid rounded" alt="relleno 1">
 <label for="relleno">Relleno 20 - 30%</label>
-<input type="radio" class="form-check-input" name="relleno" value="20-30" id="">  
+<input type="radio" class="form-check-input" name="relleno" value="20-30" id="" >
 </div>
   <div class="col-md-4 py-2 px-2  shadow">
     <img src="image/relleno-2.jpg" class="imgzoom figure-img img-fluid rounded" alt="relleno 2">
     <label for="relleno">Relleno 50 - 60%</label>
-    <input type="radio" class="form-check-input" name="relleno" value="50-60" id="">
-  
+    <input type="radio" class="form-check-input" name="relleno" value="50-60" id="" >
+
   </div>
   <div class="col-md-4 py-2 px-2  shadow">
     <img src="image/relleno-3.jpg" class="imgzoom figure-img img-fluid rounded" alt="relleno 3">
     <label for="relleno">Relleno 90 - 100%</label>
-    <input type="radio" class="form-check-input" name="relleno" value="90-100" id="">
-  
+    <input type="radio" class="form-check-input" name="relleno" value="90-100" id="" >
+
   </div>
 </div>
 <!-- relleno interior -->
@@ -202,19 +196,19 @@ Z
   <div class="col-md-4 py-2 px-2  shadow">
 <img src="image/calidad-1.jpg" class="imgzoom figure-img img-fluid rounded" alt="relleno 1">
 <label for="acabado">Fino</label>
-<input type="radio" class="form-check-input" name="acabado" value="20-30" id="">  
+<input type="radio" class="form-check-input" name="acabado" value="20-30" id="" >
 </div>
   <div class="col-md-4 py-2 px-2  shadow">
     <img src="image/calidad-2.jpg" class="imgzoom figure-img img-fluid rounded" alt="relleno 2">
     <label for="acabado">Medio</label>
-    <input type="radio" class="form-check-input" name="acabado" value="50-60" id="">
-  
+    <input type="radio" class="form-check-input" name="acabado" value="50-60" id="" >
+
   </div>
   <div class="col-md-4 py-2 px-2  shadow">
     <img src="image/calidad-3.jpg" class="imgzoom figure-img img-fluid rounded" alt="relleno 3">
     <label for="acabado">Rugoso</label>
-    <input type="radio" class="form-check-input" name="acabado" value="90-100" id="">
-  
+    <input type="radio" class="form-check-input" name="acabado" value="90-100" id="" >
+
   </div>
 </div>
 <!-- acabado superficial -->
@@ -248,20 +242,22 @@ Z
       <p class="text-center h5 fw-bold ">Detalles de cotización</p>
 <hr>
 <?php if ($tiempoMinutos): ?>
-  <strong>Minutos para imprimir <?php echo round($tiempoMinutos); ?> minutos</strong> <br>
+  <strong>Minutos para imprimir <?php echo round(
+    $tiempoMinutos
+); ?> minutos</strong> <br>
   <strong>o tambien</strong><br>
   <strong>Horas para imprimir <?php echo round($horas, 2); ?> hrs</strong> <br>
-<?php endif; ?>
+<?php endif;?>
 
 <hr>
 <?php if ($precio): ?>
-  <strong>Filamento $<?php echo round($precio); ?> pesos MXN</strong> 
-<?php endif; ?>
+  <strong>Filamento $<?php echo round($precio); ?> pesos MXN</strong>
+<?php endif;?>
       </div>
     </div>
     </div>
 
-<?php include 'layout/footer.php'; ?>
+<?php include 'layout/footer.php';?>
 
 </body>
 
