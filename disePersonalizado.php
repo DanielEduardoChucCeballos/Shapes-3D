@@ -1,3 +1,6 @@
+<?php
+include('funciones/calculadora.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +20,7 @@
     <div class="row">
     <div class="col-md-8">
 
-<form action="funciones/calculadora.php" method="post" enctype="multipart/form">
+<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" enctype="multipart/form">
 
 <div class="container py-4 ">
 <div class="col-md-10 py-4 mx-auto">
@@ -124,15 +127,15 @@
   <div class="col-md-10">
   <div class="input-group">
                 <span class="input-group-text">Altura cm</span>
-                <input type="number" name="altura" id="altura" step="any" max="148" class="form-control shadow" placeholder="Altura">
+                <input type="number" name="altura" id="altura" step="any" max="20" class="form-control shadow" placeholder="Altura">
               </div>
               <div class="input-group">
                 <span class="input-group-text">Longitud cm</span>
-                <input type="number" name="longitud" id="longitud" step="any" max="148" class="form-control shadow" placeholder="Longitud">
+                <input type="number" name="longitud" id="longitud" step="any" max="14.8" class="form-control shadow" placeholder="Longitud">
               </div>
               <div class="input-group">
                 <span class="input-group-text">Anchura cm</span>
-                <input type="number" name="anchura" id="anchura" step="any" max="74" class="form-control shadow" placeholder="Anchura">
+                <input type="number" name="anchura" id="anchura" step="any" max="14" class="form-control shadow" placeholder="Anchura">
               </div>
   </div>
   <div class="col-md-2">
@@ -156,8 +159,8 @@ Z
                 <label for="material" class="form-label">Material</label>
                 <select class="form-select shadow" name="material" id="">
                   <option selected>-- Selecciona un Material --</option>
-                  <option value="">PLA Gris $1.2 pesos MX Por Minuto</option>
-                  <option value="">ABS Azul $1.50 pesos MX por minuto</option>
+                  <option value="1.2">PLA Gris $1.2 pesos MX Por Minuto</option>
+                  <option value="1.5">ABS Azul $1.50 pesos MX por minuto</option>
                  
                 </select>
               </div>
@@ -244,6 +247,16 @@ Z
       <div class="card-body bg-white">
       <p class="text-center h5 fw-bold ">Detalles de cotización</p>
 <hr>
+<?php if ($tiempoMinutos): ?>
+  <strong>Minutos para imprimir <?php echo round($tiempoMinutos); ?> minutos</strong> <br>
+  <strong>o tambien</strong><br>
+  <strong>Horas para imprimir <?php echo round($horas, 2); ?> hrs</strong> <br>
+<?php endif; ?>
+
+<hr>
+<?php if ($precio): ?>
+  <strong>Filamento $<?php echo round($precio); ?> pesos MXN</strong> 
+<?php endif; ?>
       </div>
     </div>
     </div>

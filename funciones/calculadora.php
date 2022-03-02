@@ -1,5 +1,5 @@
 <?php
-print_r($_POST);
+
 $area = $longitud * $anchura * $altura;
 
 
@@ -29,8 +29,18 @@ $altura = $_POST['altura'];
 $longitud = $_POST['longitud'];
 $anchura = $_POST['anchura'];
 
-$area = $longitud * $altura * $anchura;
-echo "Area $area";
+$volumen = $longitud * $altura * $anchura;
+/* echo "Volumen $volumen";
+ */
+$vmax =4144;
+$tmax = 2700;
 
+$tiempoMinutos = $volumen *  $tmax / $vmax;
+$horas = $tiempoMinutos / 60;
+$precio = $tiempoMinutos * $material;
+/* echo "El tiempo en minutos para imprimir es de $tiempoMinutos minutos por lo cual el precio de
+1.5 pesos por minuto seria de $$precio pesos MX";
+
+ */
 
 ?>
