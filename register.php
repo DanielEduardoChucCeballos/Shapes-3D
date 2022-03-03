@@ -1,5 +1,10 @@
 <?php
-include('auth/register_v.php');
+use Phppot\Member;
+if (! empty($_POST["signup-btn"])) {
+    require_once './Model/Member.php';
+    $member = new Member();
+    $registrationResponse = $member->registerMember();
+}
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +16,9 @@ include('auth/register_v.php');
   <title>Registro | Shapes 3D</title>
 </head>
 <body>
+
 <?php require 'layout/header.php'; ?>
+<script src="vendor/jquery/jquery-3.3.1.js" type="text/javascript"></script>
 <section class=" py-4 robotofont" style="background-color: #eee;">
   <div class="container h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -20,69 +27,80 @@ include('auth/register_v.php');
           <div class="card-body p-md-5">
             <div class="row justify-content-center">
               <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-              <?php if (!empty($errores)): ?>
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        <strong><?php echo $errores; ?></strong> 
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                    
-                  <?php endif; ?>
-                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Registro</p>
+              <form name="sign-up" action="" method="post" onsubmit="return signupValidation()">
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Regístrate</p>
 
-                <form action="<?php echo htmlspecialchars(
-                    $_SERVER['PHP_SELF']
-                ); ?>" method="POST"class="mx-1 mx-md-4">
+                <?php
+    if (! empty($registrationResponse["status"])) {
+        ?>
+                    <?php
+        if ($registrationResponse["status"] == "error") {
+            ?>
+				    <div class="server-response error-msg"><?php echo $registrationResponse["message"]; ?></div>
+                    <?php
+        } else if ($registrationResponse["status"] == "success") {
+            ?>
+                    <div class="server-response success-msg"><?php echo $registrationResponse["message"]; ?></div>
+                    <?php
+        }
+        ?>
+				<?php
+    }
+    ?>	<div class="error-msg" id="error-msg"></div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                    <label class="form-label" for="form3Example1c">Nombre de Usuario</label>
+                    <div class="form-label">
+								Nombre de Usuario <span class="required error" id="username-info"></span>
+							</div>
 
-                      <input type="text" id="form3Example1c" class="form-control shadow" name="username" />
+                      <input type="text" id="username" class="form-control shadow" name="username" />
                     </div>
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                    <label class="form-label" for="form3Example3c">Email</label>
+                    <div class="form-label">
+								Email <span class="required error" id="email-info"></span>
+							</div>
 
-                      <input type="email" id="form3Example3c" class="form-control shadow" name="email" />
+                      <input class="form-control shadow" type="email" name="email" id="email" />
                     </div>
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                    <label class="form-label" for="form3Example4c">Contraseña</label>
+                    <div class="form-label">
+								Contraseña <span class="required error" id="signup-password-info"></span>
+							</div>
 
-                      <input type="password" id="form3Example4c" class="form-control shadow" name="password"/>
+                      <input class="form-control shadow" type="password" name="signup-password" id="signup-password"/>
                     </div>
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                    <label class="form-label" for="form3Example4cd">Verifique su contraseña</label>
+                    <div class="form-label">
+								Confirmar Contraseña <span class="required error"
+									id="confirm-password-info"></span>
+							</div>
 
-                      <input type="password" id="form3Example4cd" class="form-control shadow" name="r_password"/>
+                      <input class="form-control shadow" type="password"
+								name="confirm-password" id="confirm-password"/>
                     </div>
                   </div>
 
                   <div class="form-check d-flex justify-content-center mb-5">
-                    <input
-                      class="form-check-input me-2"
-                      type="checkbox"
-                      value="confirm"
-                      name="confirm"
-                    />
-                    <label class="form-check-label" for="form2Example3">
-                    Acepto todos los <a href="#!"> Términos y condiciones</a>
-                    </label>
+              
+                  
                   </div>
 
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button type="submit" name="register" value="register" class="btn btn-primary btn-lg">Registrar</button>
+                    <button type="submit" name="signup-btn" id="signup-btn" value="Sign up" class="btn btn-primary btn-lg">Registrarme</button>
                   </div>
 
                 </form>
@@ -103,7 +121,60 @@ include('auth/register_v.php');
 <br><br><br>
 </section>
 <!-- //test -->
-
+<script>
+function signupValidation() {
+	var valid = true;
+	$("#username").removeClass("error-field");
+	$("#email").removeClass("error-field");
+	$("#password").removeClass("error-field");
+	$("#confirm-password").removeClass("error-field");
+	var UserName = $("#username").val();
+	var email = $("#email").val();
+	var Password = $('#signup-password').val();
+    var ConfirmPassword = $('#confirm-password').val();
+	var emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+	$("#username-info").html("").hide();
+	$("#email-info").html("").hide();
+	if (UserName.trim() == "") {
+		$("#username-info").html("Necesario.").css("color", "#ee0000").show();
+		$("#username").addClass("error-field");
+		valid = false;
+	}
+	if (email == "") {
+		$("#email-info").html("Necesario").css("color", "#ee0000").show();
+		$("#email").addClass("error-field");
+		valid = false;
+	} else if (email.trim() == "") {
+		$("#email-info").html("Invalid email address.").css("color", "#ee0000").show();
+		$("#email").addClass("error-field");
+		valid = false;
+	} else if (!emailRegex.test(email)) {
+		$("#email-info").html("Invalid email address.").css("color", "#ee0000")
+				.show();
+		$("#email").addClass("error-field");
+		valid = false;
+	}
+	if (Password.trim() == "") {
+		$("#signup-password-info").html("Necesario.").css("color", "#ee0000").show();
+		$("#signup-password").addClass("error-field");
+		valid = false;
+	}
+	if (ConfirmPassword.trim() == "") {
+		$("#confirm-password-info").html("Necesario.").css("color", "#ee0000").show();
+		$("#confirm-password").addClass("error-field");
+		valid = false;
+	}
+	if(Password != ConfirmPassword){
+        $("#error-msg").html("Both passwords must be same.").show();
+        valid=false;
+    }
+	if (valid == false) {
+		$('.error-field').first().focus();
+		valid = false;
+	}
+	return valid;
+}
+</script>
 <?php require 'layout/footer.php'; ?>
 
 </body>

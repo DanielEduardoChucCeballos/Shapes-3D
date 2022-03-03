@@ -1,108 +1,140 @@
+<?php
+use Phppot\Member;
+
+if (! empty($_POST["login-btn"])) {
+    require_once __DIR__ . '/Model/Member.php';
+    $member = new Member();
+    $loginResult = $member->loginMember();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login | Shapes 3D</title>
+  <title>Registro | Shapes 3D</title>
 </head>
 <body>
-  
-<?php
-require 'layout/header.php'; 
-?>
 
-<section class="vh-100 ">
-  
-<h5 class="robotofont py-4 text-center">INICIO DE SESSIÓN</h5>
-  <div class="container py-5 h-100">
-    <div class="row d-flex align-items-center justify-content-center h-100">
-      <div class="col-md-8 col-lg-7 col-xl-6">
-        <img src="image/pp.jpeg" class="img-fluid" alt="Phone image">
-      </div>
-      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+<?php require 'layout/header.php'; ?>
 
-      <div id="messages"></div>
+<script src="vendor/jquery/jquery-3.3.1.js" type="text/javascript"></script>
 
-        <form action="auth/login_v.php" method="post" id="frmLoging">
-          <!-- Email input -->
-          <div class="form-outline mb-4">
-            <label class="form-label" for="form1Example13">Email</label>
+<section class=" py-4 robotofont" style="background-color: #eee;">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        <div class="card text-black" style="border-radius: 25px;">
+          <div class="card-body p-md-5">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+             
+				<form name="login" action="" method="post"
+					onsubmit="return loginValidation()">
+          <p class="text-center h1 fw-bold mb-4 mx-1 mx-md-2 mt-4">Iniciar Sesión</p>
+				<?php if(!empty($loginResult)){?>
+				<div class="error-msg"><?php echo $loginResult;?></div>
+				<?php }?>
+                	<div class="error-msg" id="error-msg"></div>
 
-            <input type="email" id="form1Example13" name="username" placeholder="Email"class="form-control form-control-lg shadow"/>
-          </div>
-
-          <!-- Password input -->
-          <div class="form-outline mb-4">
-            <label class="form-label" for="form1Example23">Contraseña</label>
-
-            <input type="password" id="form1Example23" name="password" placeholder="Password"  class="form-control form-control-lg shadow"/>
-          </div>
-
-          <div class="d-flex justify-content-around align-items-center mb-4">
-            <!-- Checkbox -->
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                value=""
-                id="form1Example3"
-                checked
-              />
-              <label class="form-check-label" for="form1Example3">Recordar</label>
-            </div>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                    <div class="form-label">
             
-            <a href="#!">¿Olvido su contraseña?</a>
+								Nombre de Usuario <span class="required error" id="username-info"></span>
+							</div>
+                      <input type="text" id="username" class="form-control shadow" name="username" />
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                   
+                    <div class="form-outline flex-fill mb-0">
+                   
+
+                      
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                    <div class="form-label">
+								Contraseña <span class="required error" id="login-password-info"></span>
+							</div>
+
+                      <input class="form-control shadow" type="password"
+								name="login-password" id="login-password"/>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    
+                    <div class="form-outline flex-fill mb-0">
+                    
+
+                     
+                    </div>
+                  </div>
+                 <!-- //Olvidó su contraseña aquí -->
+                  <div class="form-check d-flex justify-content-center mb-5"> </div>
+
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    
+                    <button type="submit" name="login-btn"
+                    
+							id="login-btn" value="Login Now" class="btn btn-primary btn-lg">Iniciar Sesión</button>
+                  </div>
+
+                </form>
+               
+              </div>
+              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+                <img src="image/pp.jpeg" class="img-fluid" alt="Sample image">
+
+              </div>
+            </div>
           </div>
-
-          <!-- Submit button -->
-          <button  type="submit" name="login" value="login" class="btn btn-primary btn-lg btn-block shadow">Iniciar Sesión</button>
-
-         <!--  <div class="divider d-flex align-items-center my-4">
-            <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
-          </div>
-
-          <a class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" href="#!" role="button">
-            <i class="fab fa-facebook-f me-2"></i>Continue with Facebook
-          </a> -->
-         <!--  <a class="btn btn-primary btn-lg btn-block" style="background-color: #55acee" href="#!" role="button">
-            <i class="fab fa-twitter me-2"></i>Continue with Twitter</a> -->
-
-        </form>
+        </div>
       </div>
     </div>
   </div>
-
-</section>
-<br><br><br><br><br>
+  <br><br><br><br><br>
 <br><br><br>
+</section>
+<!-- //test -->
+<script>
+function loginValidation() {
+	var valid = true;
+	$("#username").removeClass("error-field");
+	$("#password").removeClass("error-field");
 
-<?php 
-require 'layout/footer.php';
-?>
+	var UserName = $("#username").val();
+	var Password = $('#login-password').val();
 
-<script src="js/jquery.min.js"></script>
+	$("#username-info").html("").hide();
 
-<script type="text/javascript">
-    var frm1 = $('#frmLoging');
-    frm1.submit(function(e) {
-      e.preventDefault();
-      $.ajax({
-        type: frm1.attr('method'),
-        url: frm1.attr('action'),
-        data: frm1.serialize(),
-        success: function(data) {
-          console.log('Submission was successful.');
-          console.log(data);
-          $('#messages').html(data);
-        },
-        error: function(data) {
-          console.log('An error occurred.');
-          console.log(data);
-        },
-      });
-    });
-  </script>
+	if (UserName.trim() == "") {
+		$("#username-info").html("Necesario.").css("color", "#ee0000").show();
+		$("#username").addClass("error-field");
+		valid = false;
+	}
+	if (Password.trim() == "") {
+		$("#login-password-info").html("Necesario.").css("color", "#ee0000").show();
+		$("#login-password").addClass("error-field");
+		valid = false;
+	}
+	if (valid == false) {
+		$('.error-field').first().focus();
+		valid = false;
+	}
+	return valid;
+}
+</script>
+<?php require 'layout/footer.php'; ?>
 
 </body>
 </html>

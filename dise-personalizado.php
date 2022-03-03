@@ -95,7 +95,7 @@ $resultados = $statement->fetchAll();
                 </div>
 
                 <!--Puntos de vista-->
-                <div class="row">
+                <!-- <div class="row">
   <div class="col-md-4 py-2 px-2  shadow">
 <img src="image/cubo.png" class="  img-fluid rounded " alt="Primera Perspectiva">
 </div>
@@ -105,7 +105,7 @@ $resultados = $statement->fetchAll();
   <div class="col-md-4 py-2 px-2  shadow">
     <img src="image/otro.jpg" class="  img-fluid rounded " alt="Tercera Perspectiva">
   </div>
-</div>
+</div> -->
 
             </div>
         </div>
@@ -212,15 +212,25 @@ Z
   </div>
 </div>
 <!-- acabado superficial -->
+<!-- figura semejante -->
+<hr>
+<center>
+<h4>¿A qué figura se parece más tu modelo?</h4>
+</center>
+<div class="row">
+  <div class="col-md-6 py-2 px-2  shadow">
+<img src="image/cubo.png" class=" img-fluid  rounded" alt="Cubo" style="width:90%">  <br>
+<label for="acabado">Cubo</label>
+<input type="radio" class="form-check-input" name="forma" value="cubo" id="" >
+</div>
+  <div class="col-md-6 py-2 px-2  shadow">
+    <img src="image/triangulo.png" class=" img-fluid rounded" alt="Pirámide">
+    <label for="acabado">Pirámide</label>
+    <input type="radio" class="form-check-input" name="forma" value="piramide" id="" >
 
-
-
-
-
-
-
-
-
+  </div>
+</div>
+<!-- figura semejante -->
         </div>
 
    <!--  <div class="row">
@@ -232,11 +242,15 @@ Z
 </div>
 <div class="col-md-10 py-4 mx-auto">
   <center>
-    <input type="submit" class="btn btn-success" name="submit" value="Calcular">
+    <input type="submit" class="btn btn-success" name="submit" value="Cotización">
+    <button type="button" class="btn btn-danger">¿Quiere continuar con la compra? <i class="bi-arrow-right-circle"></i></button>
   </center>
 </div>
+
 </form>
     </div>
+   
+
     <div class="col-md-4 py-4 px-4">
       <div class="card-body bg-white">
       <p class="text-center h5 fw-bold ">Detalles de cotización</p>

@@ -7,13 +7,7 @@ $resultados = $statement->fetchAll();
 $errores = '';
 $vmax = 4144;
 $tmax = 2700;
-$volume ="";
-
-
-
-
-
-
+$volume = '';
 
 if (isset($_POST['submit'])) {
     $name = $_POST['nombre'];
@@ -30,6 +24,7 @@ if (isset($_POST['submit'])) {
     $filament = $_POST['material'];
     $filling = $_POST['relleno'];
     $finished = $_POST['acabado'];
+    $shape = $_POST['forma'];
 
     if (!empty($name)) {
         $name = filter_var($name, FILTER_SANITIZE_STRING);
@@ -67,7 +62,7 @@ if (isset($_POST['submit'])) {
         $errores .= ' Porfavor agregue un Teléfono valido <br>';
     }
 
-/*  if (!empty($model)) {
+    /*  if (!empty($model)) {
         $model = filter_var($model, FILTER_SANITIZE_STRING);
     } else {
         $errores .= ' Porfavor inserte un Modelo <br>';
@@ -107,11 +102,66 @@ if (isset($_POST['submit'])) {
     } else {
         $errores .= ' Porfavor agregue un Acabado <br>';
     }
-    if ($length OR $height OR $width) {
-        $volume = $length * $height * $width;
-        $tiempoMinutos = ($volume * $tmax) / $vmax;
-        $horas = $tiempoMinutos / 60;
-        $precio = $tiempoMinutos * $filament;
+    if (!empty($shape)) {
+        $shape = filter_var($shape, FILTER_SANITIZE_STRING);
+    } else {
+        $errores .= ' Porfavor determine la forma <br>';
+    }
+
+    //Si se quiere subir una imagen
+    if (isset($_POST['submit'])) {
+        //Recogemos el archivo enviado por el formulario
+        $model = $_FILES['model']['name'];
+        //Si el archivo contiene algo y es diferente de vacio
+        if (isset($model) && $model != '') {
+            //Obtenemos algunos datos necesarios sobre el archivo
+            $tipo = $_FILES['model']['type'];
+            $tamano = $_FILES['model']['size'];
+            $temp = $_FILES['model']['tmp_name'];
+            //Se comprueba si el archivo a cargar es correcto observando su extensión y tamaño
+            if (
+                !(
+                    (strpos($tipo, 'gif') ||
+                        strpos($tipo, 'jpeg') ||
+                        strpos($tipo, 'jpg') ||
+                        strpos($tipo, 'png')) &&
+                    $tamano < 2000000
+                )
+            ) {
+                echo '<div><b>Error. La extensión o el tamaño de los archivos no es correcta.<br/>
+         - Se permiten archivos .gif, .jpg, .png. y de 200 kb como máximo.</b></div>';
+            } else {
+                //Si la imagen es correcta en tamaño y tipo
+                //Se intenta subir al servidor
+                if (move_uploaded_file($temp, 'image/' . $archivo)) {
+                    //Cambiamos los permisos del archivo a 777 para poder modificarlo posteriormente
+                    chmod('image/' . $archivo, 0777);
+                    //Mostramos el mensaje de que se ha subido co éxito
+                    echo '<div><b>Se ha subido correctamente la imagen.</b></div>';
+                    //Mostramos la imagen subida
+                    echo '<p><img src="image/' . $archivo . '"></p>';
+                } else {
+                    //Si no se ha podido subir la imagen, mostramos un mensaje de error
+                    echo '<div><b>Ocurrió algún error al subir el fichero. No pudo guardarse.</b></div>';
+                }
+            }
+        }
+    }
+
+    if ($shape === 'cubo') {
+        if ($length or $height or $width) {
+            $volume = $length * $height * $width;
+            $tiempoMinutos = ($volume * $tmax) / $vmax;
+            $horas = $tiempoMinutos / 60;
+            $precio = $tiempoMinutos * $filament;
+        }
+    } else {
+        if ($length or $height or $width) {
+            $volume = (($length * $height) / 2) * $width;
+            $tiempoMinutos = ($volume * $tmax) / $vmax;
+            $horas = $tiempoMinutos / 60;
+            $precio = $tiempoMinutos * $filament;
+        }
     }
 }
 
