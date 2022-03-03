@@ -18,31 +18,38 @@ require "layout/header.php";
 
 <div class="row justify-content-center ">
 
-  <div class="card col-lg-4 mx-3 my-3">
+  <div class="card col-lg-4 mx-3 my-3  " style="border-radius: 25px;">
     <div class="my-4 rounded-bottom py-4 px-4 text-center" >
-      <img src="image/8.png" class="card-img-top w-50" alt="...">
+      <img src="image/solicitud.jpg" class="card-img-top w-50" alt="Solicitud de impresiones">
       <div class="card-body">
-        <h5 class="card-title robotofont text-start ">Impresiones</h5>
+        <h5 class="card-title robotofont text-start text-center">Impresiones</h5>
         <hr>
-        <p class="card-text text-start ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <p class="card-text text-start ">
+        En esta solicitud de impresiones puedes solicitar el servicio de impresión 3D que gustes!
+        </p>
         <div class="d-grid gap-2">
-          <a href="formulario-de-impresion.php" class="btn btn-primary  btn-lg">Go somewhere</a>
+          <a href="formulario-de-impresion.php" class="btn btn-primary  btn-lg">Solicitar</a>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="card col-lg-4 mx-3 my-3">
-  <div class="my-4 rounded-bottom py-4 px-4" >
-    <img src="image/8.png" class="card-img-top imgzoom w-50" alt="...">
-    <div class="card-body">
-      <h5 class="card-title robotofont">Diseño Personalizado</h5>
-      <hr>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="dise-personalizado.php" class="btn btn-primary">Go somewhere</a>
+  <div class="card col-lg-4 mx-3 my-3 " style="border-radius: 25px;">
+    <div class="my-4 rounded-bottom py-4 px-4 text-center" >
+      <img src="image/Form-1.jpg" class="card-img-top w-50" alt="Diseños Personalizados">
+      <div class="card-body">
+        <h5 class="card-title robotofont text-start text-center">Diseños Personalizados</h5>
+        <hr>
+        <p class="card-text text-start ">
+          En esta solicitud de impresiones puedes solicitar el servicio de impresión 3D personalizado!
+        </p>
+        <div class="d-grid gap-2">
+          <a href="dise-personalizado.php" class="btn btn-primary  btn-lg">Solicitar</a>
+        </div>
+      </div>
     </div>
   </div>
-  </div>
+
 
 
   

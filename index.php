@@ -51,33 +51,33 @@
         <div class="row">
         <div class="col-md-4 py-2">
                 <div class="card h-100 card-body shadow">
-                    <img src="image/6.png" class="imgzoom img-fluid|thumbnail rounded-top|rounded-end|rounded-bottom|rounded-start|rounded-circle|" alt="shapes 3d Logo">
+                    <img src="image/6.png" class="imgzoom img-fluid" alt="precios">
 					<br>
                     <hr>
-                    <button class="btn btn-primary">Precios</button>
+                    <button type="button" class="btn btn-outline-primary btn-lg btn-block"><i class="bi-heart-fill"></i> Precios</button>
                 </div>
             </div>
             <div class="col-md-4 py-2">
                 <div class="card h-100 card-body shadow">
-                    <img src="image/8.png" class="imgzoom img-fluid|thumbnail rounded-top|rounded-end|rounded-bottom|rounded-start|rounded-circle|" alt=""> 
+                    <img src="image/filamentos.webp" class="imgzoom img-fluid" alt="filamentos"> 
                     <br>
                     <hr>
-                    <button class="btn btn-primary">Filamentos</button>
+                    <a href="filamentos.php"class="btn btn-outline-primary btn-lg btn-block"><i class="bi-heart-fill"></i> Filamentos</a>
                 </div>
             </div>
             <div class="col-md-4 py-2">
                 <div class="card h-100 card-body shadow">
-                    <img src="image/8.png" class="imgzoom img-fluid|thumbnail rounded-top|rounded-end|rounded-bottom|rounded-start|rounded-circle|" alt=""> 
+                    <img src="image/diseños.jpg" class="imgzoom img-fluid" alt="diseños 3d"> 
                     <br>
                     <hr>
-                    <button class="btn btn-primary">Diseños 3D</button>
+                    <a href="catalogo.php" class="btn btn-outline-primary btn-lg btn-block"><i class="bi-heart-fill"></i> Diseños 3D</a>
                 </div>
             </div>
         	<hr>
         	<div class="card h-100 card-body shadow my-5">
         		<div class="row container">
         			<div class="col-3 p-3">
-        			<img src="image/3.png" class="imgzoom img-fluid|thumbnail rounded-top|rounded-end|rounded-bottom|rounded-start|rounded-circle|" alt="" style="width: 300px; height: 300px"> 
+        			<img src="image/3.png" class="imgzoom img-fluid" alt="" style="width: 300px; height: 300px"> 
 	        		</div>
 	        		<div class="col-2 text-white">
 	        			.

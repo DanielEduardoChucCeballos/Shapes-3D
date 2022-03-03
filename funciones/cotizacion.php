@@ -1,8 +1,6 @@
 <?php
 include 'db/config.php';
-$statement = $pdo->prepare('SELECT * FROM filament');
-$statement->execute();
-$resultados = $statement->fetchAll();
+
 
 $errores = '';
 $vmax = 4144;
@@ -163,6 +161,7 @@ if (isset($_POST['submit'])) {
             $precio = $tiempoMinutos * $filament;
         }
     }
+   
 }
 
 ?>

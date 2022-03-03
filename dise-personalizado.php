@@ -1,5 +1,5 @@
 <?php
-include 'funciones/calculadora.php';?>
+include 'funciones/cotizacion.php';?>
 <?php
 include 'db/config.php';
 $statement = $pdo->prepare('SELECT * FROM filament');
@@ -242,7 +242,8 @@ Z
 </div>
 <div class="col-md-10 py-4 mx-auto">
   <center>
-    <input type="submit" class="btn btn-success" name="submit" value="Cotización">
+    <input type="submit" class="btn btn-success" name="submit" value="Sacar solo Cotización">
+
     <button type="button" class="btn btn-danger">¿Quiere continuar con la compra? <i class="bi-arrow-right-circle"></i></button>
   </center>
 </div>
@@ -267,8 +268,22 @@ Z
 <?php if ($precio): ?>
   <strong>Filamento $<?php echo round($precio); ?> pesos MXN</strong>
 <?php endif;?>
+
+<p id="p1">
+El filamento se cobra por minuto según el tipo de material del filamento seleccionado, cada filamento tiene sus pros y contras, Revisa la información proporcionada!!! <br><br>
+<a href="filamentos.php"class="btn btn-outline-primary btn-sm"><i class="bi-heart-fill"></i> Filamentos</a>
+</p>
+
+<input type="button" class="btn btn-secondary btn-sm" value="Mostrar"
+onclick="document.getElementById('p1').style.visibility='visible'">
+<input type="button" class="btn btn-secondary btn-sm" value="Ocultar" 
+onclick="document.getElementById('p1').style.visibility='hidden'">
+
+
+
       </div>
     </div>
+
     </div>
 
 <?php include 'layout/footer.php';?>
