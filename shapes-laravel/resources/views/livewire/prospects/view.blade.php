@@ -7,10 +7,10 @@
 					<div style="display: flex; justify-content: space-between; align-items: center;">
 						<div class="float-left">
 							<h4><i class="fab fa-laravel text-info"></i>
-							Prospect Listing </h4>
+							Posibles clientes </h4>
 						</div>
 						<div wire:poll.60s>
-							<code><h5>{{ now()->format('H:i:s') }} UTC</h5></code>
+							<!--code><h5>{{ now()->format('H:i:s') }} UTC</h5></code-->
 						</div>
 						@if (session()->has('message'))
 						<div wire:poll.4s class="btn btn-sm btn-success" style="margin-top:0px; margin-bottom:0px;"> {{ session('message') }} </div>
@@ -19,7 +19,7 @@
 							<input wire:model='keyWord' type="text" class="form-control" name="search" id="search" placeholder="Search Prospects">
 						</div>
 						<div class="btn btn-sm btn-info" data-toggle="modal" data-target="#createDataModal">
-						<i class="fa fa-plus"></i>  Add Prospects
+						<i class="fa fa-plus"></i>  Agregar
 						</div>
 					</div>
 				</div>
@@ -42,9 +42,17 @@
 							@foreach($prospects as $row)
 							<tr>
 								<td>{{ $loop->iteration }}</td> 
-								<td>{{ $row->detail_id }}</td>
-								<td>{{ $row->personal_information_id }}</td>
-								<td>{{ $row->description_model_id }}</td>
+								<td>
+									{{ $row->detail->height }}<br>
+									{{ $row->detail->length }}<br>
+									{{ $row->detail->width }}<br>
+									{{ $row->detail->price }}<br>
+									{{ $row->detail->filamentColor->color->name }}<br>
+									{{ $row->detail->filling->name }}<br>
+									{{ $row->detail->finish->name }}<br>
+								</td>
+								<td>{{ $row->personalInformation->name }}</td>
+								<td>{{ $row->descriptionModel->model }}</td>
 								<td width="90">
 								<div class="btn-group">
 									<button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -57,7 +57,7 @@ class FilamentColors extends Component
         
         $this->resetInput();
 		$this->emit('closeModal');
-		session()->flash('message', 'FilamentColor Successfully created.');
+		session()->flash('message', 'Color de Filamento Agregado.');
     }
 
     public function edit($id)

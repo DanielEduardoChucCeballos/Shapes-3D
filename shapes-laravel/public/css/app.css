@@ -3486,6 +3486,7 @@ textarea.form-control-lg {
   padding: 0.25rem 0.5rem;
   font-size: 0.7875rem;
   border-radius: 0.2rem;
+  width: 100%;
 }
 
 .fade {
@@ -4024,7 +4025,7 @@ textarea.form-control-lg {
 }
 
 .navbar {
-  position: relative;
+  /*position: relative;*/
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -11286,3 +11287,167 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+/* < < < < < Clases para ajustar el nav > > > > > > > > */
+.body {
+  width: 100%;
+  height: 5%;
+  position: fixed;
+}
+
+.body .fijo {
+  position: fixed;
+
+}
+
+.top-left{
+  top: 0;
+  left: 0;
+}
+/* -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+/* < < < < < Clases para ajustar imagenes > > > > > > > > */
+.imagen-ajuste {
+  max-width: 100%;
+  height: auto;
+}
+/* -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+/* < < < < < Clase para centar un div > > > > > > > > */
+.padre{
+  margin: 1rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+.padre-dos{
+  height: flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hijo{
+  
+}
+/* -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+
+/* < < < < < Uso de modal para registro de usuarios > > > > > > > > */
+#modal {
+  background: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  position: fixed;
+  top: -100vh;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  transition: all .5s;
+}
+
+#modal p {
+  width: 60%;
+  height: 40%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+#mostrar-modal {
+  display: none;
+}
+
+#mostrar-modal + label {
+  background: steelblue;
+  display: table;
+  margin: auto;
+  color: #fff;
+  line-height: 3;
+  padding: 0 1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+#mostrar-modal + label:hover {
+  background: #38678f;
+}
+
+#mostrar-modal:checked ~ #modal {
+  top: 0;
+}
+
+#cerrar-modal {
+  display: none;
+}
+#cerrar-modal + label {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  z-index: 100;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  background: tomato;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  border-radius: 50%;
+  transition: all .5s;
+}
+
+#cerrar-modal:checked ~ #modal {
+  top: -100vh;
+}
+
+/* -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+/* < < < < < Transiciones entre ventanas > > > > > > > > */
+
+div {
+  transition-property: opacity, left, top, height;
+  transition-duration: 6s, 8s;
+}
+
+#delay1{
+  position: relative;
+  transition-property: font-size;
+  transition-duration: 4s;
+  transition-delay: 2s;
+  font-size: 14px;
+}
+
+/* -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+/* < < < < < Clase para el div "DETALLES DE COTIZACION" > > > > > > > > */
+.body-dos {
+  width: 40%;
+  height: 5%;
+  position: fixed;
+}
+
+.body-dos .fijo-dos {
+  position: fixed;
+}
+
+.top-left-dos{
+  margin-left: 825px;
+}
+/* -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+/* < < < < < Nombre de la funcion personalizada > > > > > > > > */
+
+/* -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+/* < < < < < Nombre de la funcion personalizada > > > > > > > > */
+
+/* -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+/* < < < < < Nombre de la funcion personalizada > > > > > > > > */
+
+/* -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+/* < < < < < Nombre de la funcion personalizada > > > > > > > > */
+
+/* -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+/* < < < < < Nombre de la funcion personalizada > > > > > > > > */
+
+/* -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+/* < < < < < Nombre de la funcion personalizada > > > > > > > > */
+
+/* -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */

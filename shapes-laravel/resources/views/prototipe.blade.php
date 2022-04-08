@@ -1,8 +1,11 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="utf-8">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Prototipos - area de pruebas</title>
+
+	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
@@ -51,14 +54,14 @@
         }
 
         /* Efecto de menu: Tamaño inicial  */
-        header{ background: rgb(0, 145, 137); border-bottom: 1px solid rgb(10, 200, 244);}
+        
         header a{ color: rgb(0, 145, 137); }
         header a.active, header a:hover{ color: #3d3d3d; }
         /* Sizes for the bigger menu */
-        header.large{ height: 120px; }
-        header.large img{ width: 100px; height: 100px; margin-top: 70px; }
-        header.large li{ margin-top: 45px; }
-        header.large form{ margin-top: 45px; }
+        header.large{ height: 95px; }
+        header.large img{ width: 50px; height: 50; margin-top: 25px; }
+        header.large li{ margin-top: 0px; }
+        header.large form{ margin-top: 0px; }
 
         /* Efecto de menu: Tamaño pequeño */
         header.small{ height: 50px; }
@@ -73,11 +76,10 @@
         -o-transition: all 0.5s; /* Opera */
 }
     </style>
-</head>
 
-<body>
-    <div id="app">
-    <header class="large shadow">
+</head>
+<body class="">
+   <header class="large shadow">
         <nav class="fijo top-left body navbar navbar-expand-lg navbar-light py-4" style="background-color:rgb(0, 145, 137); z-index: 100;">
             <div class="container-fluid">
                 <a class="px-4 nav-link" href="{{ route('index') }}"><img src="{{ asset('image/logo14.png') }}"
@@ -186,154 +188,99 @@
             </div>
         </nav>
     </header>
-        <main class="">
-            @yield('content')
-        </main>
-        <footer class="bg-dark text-center text-white">
-            <!-- Grid container -->
-            <div class="container p-4">
-                <!-- Section: Social media -->
-                <section class="mb-4">
-                    <!-- Facebook -->
-                    <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
-                            class="fab fa-facebook-f"></i></a>
-
-                    <!-- Twitter -->
-                    <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
-                            class="fab fa-twitter"></i></a>
-
-                    <!-- Google -->
-                    <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
-                            class="fab fa-google"></i></a>
-
-                    <!-- Instagram -->
-                    <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
-                            class="fab fa-instagram"></i></a>
-
-                    <!-- Linkedin -->
-                    <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
-                            class="fab fa-linkedin-in"></i></a>
-
-                    <!-- Github -->
-                    <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
-                            class="fab fa-github"></i></a>
-                </section>
-                <!-- Section: Social media -->
-
-                <!-- Section: Form -->
-
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum repellat quaerat
-                    voluptatibus placeat nam, commodi optio pariatur est quia magnam eum harum corrupti dicta, aliquam
-                    sequi voluptate quas.
-                </p>
-                </section>
-                <!-- Section: Text -->
-
-                <!-- Section: Links -->
-                <section class="">
-                    <!--Grid row-->
-                    <div class="row">
-                        <!--Grid column-->
-                        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                            <h5 class="text-uppercase">Links</h5>
-
-                            <ul class="list-unstyled mb-0">
-                                <li>
-                                    <a href="#!" class="text-white">Link 1</a>
-                                </li>
-                                <li>
-                                    <a href="#!" class="text-white">Link 2</a>
-                                </li>
-                                <li>
-                                    <a href="#!" class="text-white">Link 3</a>
-                                </li>
-                                <li>
-                                    <a href="#!" class="text-white">Link 4</a>
-                                </li>
-                            </ul>
+    	
+    </header>
+    <main class="">
+        <br>
+        <div class="container bg-blue-200">
+            <div id="carouselExampleCaptions" class="carousel slide robotofont" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                </div>
+            
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="{{ asset('image/dragon.jpg')}}" class="d-grid w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Imagina</h5>
+                            <p>Activa tu creatividad</p>
                         </div>
-                        <!--Grid column-->
-
-                        <!--Grid column-->
-                        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                            <h5 class="text-uppercase">Links</h5>
-
-                            <ul class="list-unstyled mb-0">
-                                <li>
-                                    <a href="#!" class="text-white">Link 1</a>
-                                </li>
-                                <li>
-                                    <a href="#!" class="text-white">Link 2</a>
-                                </li>
-                                <li>
-                                    <a href="#!" class="text-white">Link 3</a>
-                                </li>
-                                <li>
-                                    <a href="#!" class="text-white">Link 4</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <!--Grid column-->
-
-                        <!--Grid column-->
-                        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                            <h5 class="text-uppercase">Links</h5>
-
-                            <ul class="list-unstyled mb-0">
-                                <li>
-                                    <a href="#!" class="text-white">Link 1</a>
-                                </li>
-                                <li>
-                                    <a href="#!" class="text-white">Link 2</a>
-                                </li>
-                                <li>
-                                    <a href="#!" class="text-white">Link 3</a>
-                                </li>
-                                <li>
-                                    <a href="#!" class="text-white">Link 4</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <!--Grid column-->
-
-                        <!--Grid column-->
-                        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                            <h5 class="text-uppercase">Links</h5>
-
-                            <ul class="list-unstyled mb-0">
-                                <li>
-                                    <a href="#!" class="text-white">Link 1</a>
-                                </li>
-                                <li>
-                                    <a href="#!" class="text-white">Link 2</a>
-                                </li>
-                                <li>
-                                    <a href="#!" class="text-white">Link 3</a>
-                                </li>
-                                <li>
-                                    <a href="#!" class="text-white">Link 4</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <!--Grid column-->
                     </div>
-                    <!--Grid row-->
-                </section>
-                <!-- Section: Links -->
+                    <div class="carousel-item">
+                        <img src="{{ asset('image/maxresdefault.jpg')}}" class="d-grid w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Diseña</h5>
+                            <p>Plasma tu idea</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{ asset('image/output-with-accuracy.jpg')}}" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Imprime</h5>
+                            <p>Has realidad tu idea con Nosotros</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>  
+        </div>
+        <br>
+        <div id="carouselExampleCaptions" class="carousel slide robotofont" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{{ asset('image/dragon.jpg')}}" class="d-grid w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Imagina</h5>
+                    <p>Activa tu creatividad</p>
+                </div>
             </div>
-            <!-- Grid container -->
-
-            <!-- Copyright -->
-            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-                Shapes 3D © 2020 Copyright
-
+            <div class="carousel-item">
+                <img src="{{ asset('image/maxresdefault.jpg')}}" class="d-grid w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Diseña</h5>
+                    <p>Plasma tu idea</p>
+                </div>
             </div>
-            <!-- Copyright -->
-        </footer>
-        <!-- Footer -->
+            <div class="carousel-item">
+                <img src="{{ asset('image/output-with-accuracy.jpg')}}" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Imprime</h5>
+                    <p>Has realidad tu idea con Nosotros</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
-    <!-- Configuracion de transición de tamaño de nav -->
+    </main>
+</body>
+<!-- Configuracion de transición de tamaño de nav -->
     <script type="text/javascript">
         $(document).on("scroll",function(){
             if($(document).scrollTop()>25){
@@ -341,8 +288,6 @@
             } else{
                 $("header").removeClass("small").addClass("large");
             }
-});
-</script>
-</body>
-
+        });
+    </script>
 </html>

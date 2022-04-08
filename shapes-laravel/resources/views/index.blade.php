@@ -12,14 +12,14 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="{{ asset('image/dragon.jpg')}}" class="d-block w-100" alt="...">
+                <img src="{{ asset('image/dragon.jpg')}}" class="d-grid w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Imagina</h5>
                     <p>Activa tu creatividad</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="{{ asset('image/maxresdefault.jpg')}}" class="d-block w-100" alt="...">
+                <img src="{{ asset('image/maxresdefault.jpg')}}" class="d-grid w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Diseña</h5>
                     <p>Plasma tu idea</p>
@@ -76,7 +76,7 @@
             <div class="card h-100 card-body shadow my-5">
                 <div class="row container">
                     <div class="col-3 p-3">
-                        <img src="{{ asset('image/3.png')}}" class="imgzoom img-fluid" alt="" style="width: 300px; height: 300px">
+                        <img src="image/3.png" class="" alt="" style="width: 300px; height: 300px">
                     </div>
                     <div class="col-2 text-white">
                         .

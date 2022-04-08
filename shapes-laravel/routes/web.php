@@ -22,3 +22,7 @@ Auth::routes();
 Route::get('/index', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 Route::get('/services', [App\Http\Controllers\HomeController::class, 'servicios'])->name('services');
 Route::get('/services/diseños-personalizados', [App\Http\Controllers\DisePersonalizadosController::class, 'index'])->name('diseños-personalizados');
+
+Route::get('/Prueba', function () {
+    return view('prototipe');
+});

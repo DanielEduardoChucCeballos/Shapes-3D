@@ -221,7 +221,7 @@
     </div>
 
 
-    <div class="col-md-4 py-4 px-4">
+    <div class="col-md-4 py-4 px-4 fijo-dos body-dos top-left-dos" style="z-index: 100;">
         <div class="card-body bg-white">
             <p class="text-center h5 fw-bold ">Detalles de cotización</p>
             <hr>
