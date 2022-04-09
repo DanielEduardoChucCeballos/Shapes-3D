@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Title
@@ -227,16 +226,17 @@ return [
     'menu' => [
         // Navbar items:
         [
-            'type'         => 'navbar-search',
-            'text'         => 'search',
+            'type' => 'navbar-search',
+            'text' => 'search',
             'topnav_right' => true,
         ],
         [
-            'text'         => 'Dashboard',
-            'route' => 'admin'
+            'text' => 'Dashboard',
+            'route' => 'admin',
+            'can' => 'adminDashboard',
         ],
         [
-            'type'         => 'fullscreen-widget',
+            'type' => 'fullscreen-widget',
             'topnav_right' => true,
         ],
 
@@ -247,75 +247,80 @@ return [
         ],
         [
             'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
+            'url' => 'admin/blog',
+            'can' => 'manage-blog',
         ],
-        [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
+        /* [
+            'text' => 'pages',
+            'url' => 'admin/pages',
+            'icon' => 'far fa-fw fa-file',
+            'label' => 4,
             'label_color' => 'success',
-        ],
+        ], */
         ['header' => 'account_settings'],
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'text' => 'Usuarios',
+            'route' => 'admin.users.index',
+            'icon' => 'fas fa-fw fa-users',
+        ],
+        [
+            'text' => 'Roles',
+            'route' => 'admin.roles.index',
+            'icon' => 'fas fa-fw fa-users-cog',
         ],
         [
             'text' => 'change_password',
-            'url'  => 'admin/settings',
+            'url' => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
-            'text'    => 'CRUDS',
-            'icon'    => 'fa fa-book',
+            'text' => 'CRUDS',
+            'icon' => 'fa fa-book',
             'submenu' => [
                 [
                     'text' => 'Información Personal',
-                    'url'  => 'admin/personal_information',
-                    //'route' => 'home'
+                    'url' => 'admin/personal_information',
+                    'can' => 'crud.index',
                 ],
                 [
                     'text' => 'Descripción Del Modelo',
-                    'url'  => "admin/description_model",
-                    //'route' => 'home'
+                    'url' => 'admin/description_model',
+                    'can' => 'crud.index',
                 ],
                 [
                     'text' => 'Color',
-                    'url'  => 'admin/color',
-                    //'route' => 'home'
+                    'url' => 'admin/color',
+                    'can' => 'crud.index',
                 ],
                 [
                     'text' => 'Filamento',
-                    'url'  => 'admin/filament',
-                    //'route' => 'home'
+                    'url' => 'admin/filament',
+                    'can' => 'crud.index',
                 ],
                 [
                     'text' => 'Color del Filamento',
-                    'url'  => 'admin/filament_color',
-                    //'route' => 'home'
+                    'url' => 'admin/filament_color',
+                    'can' => 'crud.index',
                 ],
                 [
                     'text' => 'Relleno',
-                    'url'  => 'admin/filling',
-                    //'route' => 'home'
+                    'url' => 'admin/filling',
+                    'can' => 'crud.index',
                 ],
                 [
                     'text' => 'Acabado',
-                    'url'  => 'admin/finish',
-                    //'route' => 'home'
+                    'url' => 'admin/finish',
+                    'can' => 'crud.index',
                 ],
                 [
                     'text' => 'Detalles',
-                    'url'  => 'admin/detail',
-                    //'route' => 'home'
+                    'url' => 'admin/detail',
+                    'can' => 'crud.index',
                 ],
                 [
                     'text' => 'Posibles Clientes ',
-                    'url'  => 'admin/prospect',
-                    //'route' => 'home'
+                    'url' => 'admin/prospect',
+                    'can' => 'crud.index',
                 ],
                 [
                     /*
@@ -342,25 +347,24 @@ return [
                         ],
                     ], */
                 ],
-                
             ],
         ],
         ['header' => 'labels'],
-        [
-            'text'       => 'important',
+       /*  [
+            'text' => 'important',
             'icon_color' => 'red',
-            'url'        => '#',
+            'url' => '#',
         ],
         [
-            'text'       => 'warning',
+            'text' => 'warning',
             'icon_color' => 'yellow',
-            'url'        => '#',
+            'url' => '#',
         ],
         [
-            'text'       => 'information',
+            'text' => 'information',
             'icon_color' => 'cyan',
-            'url'        => '#',
-        ],
+            'url' => '#',
+        ], */
     ],
 
     /*
@@ -404,17 +408,20 @@ return [
                 [
                     'type' => 'js',
                     'asset' => false,
-                    'location' => '//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js',
+                    'location' =>
+                        '//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js',
                 ],
                 [
                     'type' => 'js',
                     'asset' => false,
-                    'location' => '//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js',
+                    'location' =>
+                        '//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js',
                 ],
                 [
                     'type' => 'css',
                     'asset' => false,
-                    'location' => '//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css',
+                    'location' =>
+                        '//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css',
                 ],
             ],
         ],
@@ -424,12 +431,14 @@ return [
                 [
                     'type' => 'js',
                     'asset' => false,
-                    'location' => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js',
+                    'location' =>
+                        '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js',
                 ],
                 [
                     'type' => 'css',
                     'asset' => false,
-                    'location' => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css',
+                    'location' =>
+                        '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css',
                 ],
             ],
         ],
@@ -439,7 +448,8 @@ return [
                 [
                     'type' => 'js',
                     'asset' => false,
-                    'location' => '//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js',
+                    'location' =>
+                        '//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js',
                 ],
             ],
         ],
@@ -459,12 +469,14 @@ return [
                 [
                     'type' => 'css',
                     'asset' => false,
-                    'location' => '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/blue/pace-theme-center-radar.min.css',
+                    'location' =>
+                        '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/blue/pace-theme-center-radar.min.css',
                 ],
                 [
                     'type' => 'js',
                     'asset' => false,
-                    'location' => '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js',
+                    'location' =>
+                        '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js',
                 ],
             ],
         ],

@@ -29,4 +29,8 @@ class HomeController extends Controller
     {
         return view('services');
     }
+    public function filamentolist()
+    {
+        return view('filamentos');
+    }
 }

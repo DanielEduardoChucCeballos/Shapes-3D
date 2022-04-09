@@ -152,7 +152,10 @@
                             @endif
                         @else
                             <li class="nav-item">
+                                @can('adminDashboard')
                                 <a class="nav-link text-light robotofont" href="{{__('admin')}}">Dasboard</a>
+                                    
+                                @endcan
                             </li>
                             <li class="nav-item">
 
