@@ -8,7 +8,7 @@
         <div class="col-md-12">
             @livewire('filament-colors')
 
-            <h1 class="bg-danger"> Reparar, traer los ID y nombres con select</h1>
+           
         </div>     
     </div>   
 </div>
