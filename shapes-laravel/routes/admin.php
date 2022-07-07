@@ -17,7 +17,10 @@ Route::view('filament', 'livewire.filaments.index')->middleware('auth','can:admi
 Route::view('color', 'livewire.colors.index')->middleware('auth','can:adminDashboard');
 Route::view('description_model', 'livewire.description-models.index')->middleware('auth','can:adminDashboard');
 Route::view('personal_information', 'livewire.personal-informations.index')->middleware('auth','can:adminDashboard');
+Route::view('categories', 'livewire.categorys.index')->middleware('auth','can:adminDashboard');
+Route::view('products', 'livewire.products.index')->middleware('auth','can:adminDashboard');
 
+Route::view('images', 'livewire.images.index')->middleware('auth','can:adminDashboard');
 
 Route::resource('users',UserController::class)->only(['index','edit','update'])->names('admin.users');
 

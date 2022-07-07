@@ -323,6 +323,21 @@ return [
                     'can' => 'crud.index',
                 ],
                 [
+                    'text' => 'Category ',
+                    'url' => 'admin/categories',
+                    'can' => 'crud.index',
+                ],
+                [
+                    'text' => 'Product',
+                    'url' => 'admin/products',
+                    'can' => 'crud.index',
+                ],
+                [
+                    'text' => 'Images',
+                    'url' => 'admin/images',
+                    'can' => 'crud.index',
+                ],
+                [
                     /*
                     'text'    => 'level_two',
                     'url'     => '#',
